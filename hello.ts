@@ -6,5 +6,16 @@
 
 // console.log(sum(4, 6));
 
-let o: { a: string; b?: string; [proName: string]: any };
+//object
+let o: { a: string; b?: string; [propName: string]: any };
 o = { a: "hello", b: "Bob", c: "dfd" };
+
+//array
+let a: Array<number>;
+a = [2, 3];
+
+//function
+let f: (a: number, b: number) => number;
+f = function (n1, n2): number {
+  return n1 + n2;
+};
