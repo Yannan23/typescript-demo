@@ -35,3 +35,7 @@ enum Gender {
 
 let person: { name: string; gender: Gender };
 person = { name: "Emily", gender: Gender.Female };
+
+//&
+let d: { name: string } & { age: number };
+d = { name: "jenny", age: 5 };
