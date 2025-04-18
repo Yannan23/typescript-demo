@@ -39,3 +39,9 @@ person = { name: "Emily", gender: Gender.Female };
 //&
 let d: { name: string } & { age: number };
 d = { name: "jenny", age: 5 };
+
+//类型的别名
+type myType = 1 | 2 | 3 | 4 | 5;
+let g: myType;
+g = 4; //yes
+g = 0; //no
