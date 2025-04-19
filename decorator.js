@@ -94,7 +94,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 //     this.age = age;
 //   }
 // }
-//class decorator
+//method decorator
 function Logger(target, propertyKey, descriptor) {
     const original = descriptor.value;
     descriptor.value = function (...args) {

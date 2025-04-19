@@ -108,7 +108,7 @@
 //   }
 // }
 
-//class decorator
+//method decorator
 function Logger(
   target: object,
   propertyKey: string,
