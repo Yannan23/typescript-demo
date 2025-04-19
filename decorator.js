@@ -59,3 +59,24 @@ User = __decorate([
 ], User);
 const user1 = new User("emily");
 user1.introduce();
+//属性装饰器
+function State(target, propertyKey) {
+    let key = `_${propertyKey}`;
+    Object.defineProperty(target, propertyKey, {
+        get() {
+            return this[key];
+        },
+        set(val) {
+            this[key] = val;
+        },
+    });
+}
+class Student {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+__decorate([
+    State
+], Student.prototype, "age", void 0);

@@ -84,3 +84,26 @@ class User {
 const user1 = new User("emily");
 
 user1.introduce();
+
+//属性装饰器
+
+function State(target: object, propertyKey: string) {
+  let key = `_${propertyKey}`;
+  Object.defineProperty(target, propertyKey, {
+    get() {
+      return this[key];
+    },
+    set(val) {
+      this[key] = val;
+    },
+  });
+}
+
+class Student {
+  name: string;
+  @State age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
