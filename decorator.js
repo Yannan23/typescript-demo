@@ -21,7 +21,6 @@ Adult = __decorate([
     AdultToString
 ], Adult);
 const a1 = new Adult("adam", 18);
-console.log(a1.toString());
 Adult.prototype.x = 99;
 //
 // type Constructor = new (...args: any[]) => {};
@@ -41,13 +40,22 @@ function LogTime(target) {
         }
     };
 }
+function LogInfo(n) {
+    return function LogInfo(target) {
+        target.prototype.introduce = function () {
+            for (let i = 0; i < n; i++) {
+                console.log(`my name is ${this.name}`);
+            }
+        };
+    };
+}
 let User = class User {
     constructor(name) {
         this.name = name;
     }
 };
 User = __decorate([
-    LogTime
+    LogInfo(5)
 ], User);
 const user1 = new User("emily");
-console.log(user1.getTime());
+user1.introduce();

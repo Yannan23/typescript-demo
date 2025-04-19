@@ -16,7 +16,7 @@ class Adult {
 }
 
 const a1 = new Adult("adam", 18);
-console.log(a1.toString());
+// console.log(a1.toString());
 
 interface Adult {
   x: number;
@@ -51,10 +51,36 @@ function LogTime<T extends Constructor>(target: T) {
   };
 }
 
-@LogTime
+// @LogTime
+
+// class User {
+//   constructor(public name: string) {}
+// }
+
+// const user1 = new User("emily");
+// console.log(user1.getTime());
+
+//装饰器工厂，装饰器工厂返回一个装饰器
+
+interface User {
+  introduce(): void;
+}
+
+function LogInfo(n: number) {
+  return function LogInfo(target: Function) {
+    target.prototype.introduce = function () {
+      for (let i = 0; i < n; i++) {
+        console.log(`my name is ${this.name}`);
+      }
+    };
+  };
+}
+
+@LogInfo(5)
 class User {
   constructor(public name: string) {}
 }
 
 const user1 = new User("emily");
-console.log(user1.getTime());
+
+user1.introduce();
